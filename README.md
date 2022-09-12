@@ -1,29 +1,11 @@
-# Next.js + Jest
+# Chat App
 
-This example shows how to configure Jest to work with Next.js.
+Chat App created with React & Firebase.
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript.
+### Features to implement
 
-## How to Use
-
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
-
-In your terminal, run the following command:
-
-```bash
-npx create-next-app --example with-jest with-jest-app
-```
-
-```bash
-yarn create next-app --example with-jest with-jest-app
-```
-
-```bash
-pnpm create next-app --example with-jest with-jest-app
-```
-
-## Run Jest Tests
-
-```bash
-npm test
-```
+- Google sign in
+- Dark theme
+- Responsive design
+- Create and delete private chats
+- Create, manage, leave and delete public chats
