@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
+import { Box, Button } from "@chakra-ui/react";
+import Link from "next/link";
 
-import styles from "@/pages/index.module.css";
+import styles from "@/styles/index.module.css";
 
 export default function Home() {
   return (
@@ -12,16 +14,28 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className={styles.title}>Welcome to My Chat app!</h1>
+        {/* <img src="/logo.png" alt="My Chat Logo" /> */}
 
-        {/* <div className={styles.card}>
+        <div className={styles.card}>
           <Image
-            src="/public/logo.png" // Route of the image file
-            height={144} // Desired size with correct aspect ratio
-            width={144} // Desired size with correct aspect ratio
+            priority
+            src="/logo.png"
+            height={200}
+            width={200}
             alt="My Chat Logo"
           />
-        </div> */}
+          <br />
+          <br />
+          <h3>Welcome to Chat App</h3>
+          <Link href="/mainPage">
+            <a>
+              {" "}
+              <Button colorScheme="blue" variant="solid">
+                Sign in with Google
+              </Button>
+            </a>
+          </Link>
+        </div>
       </main>
 
       <footer className={styles.footer}>
@@ -30,7 +44,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Made with &#128154; by Valentin Demange
+          &#128640; Copyright © 2022 Valentin Demange
         </a>
       </footer>
     </div>

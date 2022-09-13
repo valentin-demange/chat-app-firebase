@@ -1,0 +1,22 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    /* align-items: top; */
+  }
+  
+  .sideContainer {
+    min-width: 80px;
+    padding: 10px 20px;
+    /* background-color: teal; */
+    display: flex;
+    flex-direction: column;
+
+}
+
+  .chatContainer {
+    flex: 1;
+    background-color: orange;
+    padding: 5px;
+  }
