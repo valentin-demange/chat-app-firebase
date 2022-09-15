@@ -1,0 +1,54 @@
+.sbMainContainer {
+  min-width: 80px;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid;
+  align-items: center;
+}
+
+.sbUtilsContainer {
+  display: flex;
+  /* flex: 1; */
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
+}
+
+.sbChatsContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+}
+
+.sbChatItem {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  min-height: 60px;
+}
+
+.sbChatLabel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  justify-content: end;
+  align-items: flex-start;
+  display:none;
+}
+
+@media (min-width: 600px) {
+  .sbMainContainer {
+    /* min-width: 280px; */
+    min-width: 300px;
+    align-items: flex-start;
+  }
+  .sbUtilsContainer {
+    flex-direction: row;
+    justify-content: left;
+  }
+  .sbChatLabel {
+    display: flex;
+  }
+}

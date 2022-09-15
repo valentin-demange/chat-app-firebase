@@ -2,8 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Box, Button } from "@chakra-ui/react";
 import Link from "next/link";
-
-import styles from "@/styles/index.module.css";
+import styles from "./index.module.css";
 
 export default function Home() {
   return (
@@ -29,7 +28,6 @@ export default function Home() {
           <h3>Welcome to Chat App</h3>
           <Link href="/mainPage">
             <a>
-              {" "}
               <Button colorScheme="blue" variant="solid">
                 Sign in with Google
               </Button>
