@@ -21,6 +21,6 @@
       "@/styles/*": ["styles/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types.d.ts", "pages/Test.jss"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types.d.ts", "pages/Test.jss", "components/Firebase/currentUser.jsx", "components/Firebase/currentUser.jsx", "components/firebaseAuth.jsx", "components/firebaseAuth.jsx", "components/firebaseAuth.jsx", "components/firebaseAuth.jsx", "components/firebaseLogin.jsx", "components/firebaseLogin.jsx", "components/firebaseLogin.js", "components/firebaseLogin.old"],
   "exclude": ["node_modules"]
 }

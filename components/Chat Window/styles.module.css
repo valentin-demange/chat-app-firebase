@@ -13,18 +13,18 @@
     border-bottom: 1px solid;
   }
 
-  .chLabel {
+  .chatHeaderLabel {
     flex: 1;
     display: flex;
     flex-direction: column;
     padding-left: 15px;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   .chatBody {
     flex:1;
     padding: 5px 10px;
-    justify-content: end;
+    justify-content: flex-end;
     overflow-y: scroll;
   }
 

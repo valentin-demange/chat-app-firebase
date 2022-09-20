@@ -1,6 +1,6 @@
 import styles from "./mainPage.module.css";
-import SideBar from "@/components/sideBar"
-import ChatWindow from "@/components/chatWindow";
+import SideBar from "@/components/Side Bar/main"
+import ChatWindow from "@/components/Chat Window/main";
 
 export default function ChatApp() {
   return (

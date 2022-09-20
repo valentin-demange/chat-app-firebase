@@ -3,6 +3,8 @@ import Image from "next/image";
 import { Box, Button } from "@chakra-ui/react";
 import Link from "next/link";
 import styles from "./index.module.css";
+import SignInGoogle from "@/components/Firebase/firebaseAuth";
+import firebase from "firebase/compat/app";
 
 export default function Home() {
   return (
@@ -26,13 +28,14 @@ export default function Home() {
           <br />
           <br />
           <h3>Welcome to Chat App</h3>
-          <Link href="/mainPage">
+          <SignInGoogle />
+          {/* <Link href="/mainPage">
             <a>
               <Button colorScheme="blue" variant="solid">
                 Sign in with Google
               </Button>
             </a>
-          </Link>
+          </Link> */}
         </div>
       </main>
 
