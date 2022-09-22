@@ -40,7 +40,6 @@ export default function ChatHeader() {
             fontSize={20}
           />
           <MenuList>
-            <MenuItem icon={<AddIcon />}>Add a person</MenuItem>
             <MenuItem icon={<ExternalLinkIcon />}>Leave</MenuItem>
           </MenuList>
         </Menu>
