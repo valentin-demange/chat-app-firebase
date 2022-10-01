@@ -22,21 +22,21 @@ import { SelectedChatContext } from '@/components/Context/context';
 
 export default function ChatBody() {
 
-    const [messagesList, setMessagesList] = useState<message[]>([]);
-    interface message {
-      id: string;
-      profilePicUrl: string;
-      text: string;
-      author: string;
-    }
+    const [messagesList, setMessagesList] = useState<JSX.Element[]>([]);
+    // interface message {
+    //   id: string;
+    //   profilePicUrl: string;
+    //   text: string;
+    //   author: string;
+    // }
     const chatPath = [useContext(SelectedChatContext), "messages"].join("/");
-    const listItems = messagesList.map((m) => <MessageOther key={m.id} author={m.author} profilePicUrl={m.profilePicUrl} text={m.text}></MessageOther>)
+    // const listItems = messagesList.map((m) => <MessageOther key={m.id} author={m.author} profilePicUrl={m.profilePicUrl} text={m.text}></MessageOther>)
   
     useEffect(() => {
       // Create the query to load the last x messages and listen for new ones.
       const recentMessagesQuery = query(
         collection(db, chatPath),
-        orderBy("timestamp", "desc"),
+        orderBy("timestamp"),
         limit(20)
       );
   
@@ -50,12 +50,7 @@ export default function ChatBody() {
           if (change.type === "added") {
             setMessagesList((ml) => [
               ...ml,
-              {
-                id: change.doc.id,
-                profilePicUrl: message.profilePicUrl,
-                text: message.text,
-                author: message.author,
-              },
+              <MessageOther key={change.doc.id} author={message.author} profilePicUrl={message.profilePicUrl} text={message.text}></MessageOther>
             ]);
           } else {
             console.log("holi");
@@ -73,7 +68,7 @@ export default function ChatBody() {
 
     return (
       <Box className={styles.chatBody}>
-        <ul>{listItems}</ul>
+        <ul>{messagesList}</ul>
       </Box>
     );
   }
