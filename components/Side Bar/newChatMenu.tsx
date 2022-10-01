@@ -11,7 +11,8 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Avatar,
-  Heading,
+  Alert,
+  AlertIcon,
   Text,
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
@@ -44,11 +45,15 @@ export default function NewChatMenu() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>New Chat</DrawerHeader>
+          <DrawerHeader>New Private Chat</DrawerHeader>
 
           <DrawerBody padding="10px 10px">
-            <Person />
-            <Person />
+          <Alert status="warning" marginBottom="10px">
+              <AlertIcon />
+              Function not yet supported
+            </Alert>
+            <Person1 />
+            <Person2 />
           </DrawerBody>
 
           {/* <DrawerFooter>
@@ -62,17 +67,37 @@ export default function NewChatMenu() {
   );
 }
 
-function Person() {
+function Person1() {
   return (
-    <Button className={styles.sbDrawerItem} variant="ghost" padding={0} minW="100%">
-      <Avatar name="Kola Tioluwani" src="https://bit.ly/tioluwani-kolawole" />
+    <Button
+      className={styles.sbDrawerItem}
+      variant="ghost"
+      padding={0}
+      minW="100%"
+    >
+      <Avatar name="Ryan Florence" src="https://bit.ly/ryan-florence" />
       <div className={styles.sbDrawerItemLabel}>
         <Text fontSize="18px" fontWeight="normal">
-          Valentin Demange Delagarde
+          Ryan Florence
         </Text>
-        {/* <Text fontSize={13} fontWeight="normal" color="gray.400">
-          Last message at 11:15
-        </Text> */}
+      </div>
+    </Button>
+  );
+}
+
+function Person2() {
+  return (
+    <Button
+      className={styles.sbDrawerItem}
+      variant="ghost"
+      padding={0}
+      minW="100%"
+    >
+      <Avatar name="Prosper Otemuyiwa" src="https://bit.ly/prosper-baba" />
+      <div className={styles.sbDrawerItemLabel}>
+        <Text fontSize="18px" fontWeight="normal">
+          Prosper Otemuyiwa
+        </Text>
       </div>
     </Button>
   );

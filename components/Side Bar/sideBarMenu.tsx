@@ -8,14 +8,14 @@ import {
 import {
   MoonIcon,
 } from "@chakra-ui/icons";
-import CurrentUser from "../Firebase/currentUser";
+import UserAvatar from "./userAvatar"
 import NewChatMenu from "./newChatMenu";
 
 export default function SideBarMenu() {
     const { colorMode, toggleColorMode } = useColorMode();
     return (
       <Box className={styles.sbMenuContainer}>
-        <CurrentUser />
+        <UserAvatar />
   
         <NewChatMenu />
 

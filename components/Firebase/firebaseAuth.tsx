@@ -1,9 +1,7 @@
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import "firebase/compat/auth";
-import firebase from "./firebase";
+import {auth} from "./firebase";
 import { Button } from "@chakra-ui/react";
-
-const auth = firebase.auth();
 
 const SignInGoogle = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth as any);

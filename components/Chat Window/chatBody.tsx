@@ -4,41 +4,98 @@ import {
   Box,
   Tag,
 } from "@chakra-ui/react";
+import React, { useState, useEffect, useContext } from "react";
+import { db } from "@/components/Firebase/firebase";
+// import { doc, collection, getDocs, addDoc } from "firebase/firestore";
+// import { collection, addDoc, getDocs, doc, onSnapshot } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  onSnapshot,
+  doc,
+  query,
+  orderBy,
+  limit,
+} from "firebase/firestore";
+import { SelectedChatContext } from '@/components/Context/context';
 
 
 export default function ChatBody() {
+
+    const [messagesList, setMessagesList] = useState<message[]>([]);
+    interface message {
+      id: string;
+      profilePicUrl: string;
+      text: string;
+      author: string;
+    }
+    const chatPath = [useContext(SelectedChatContext), "messages"].join("/");
+    const listItems = messagesList.map((m) => <MessageOther key={m.id} author={m.author} profilePicUrl={m.profilePicUrl} text={m.text}></MessageOther>)
+  
+    useEffect(() => {
+      // Create the query to load the last x messages and listen for new ones.
+      const recentMessagesQuery = query(
+        collection(db, chatPath),
+        orderBy("timestamp", "desc"),
+        limit(20)
+      );
+  
+      // console.log({recentMessagesQuery})
+      // console.log("setting onSnapshot")
+      // Start listening to the query.
+      const unsubscribe = onSnapshot(recentMessagesQuery, function (snapshot) {
+        snapshot.docChanges().forEach(function (change) {
+          var message = change.doc.data();
+          console.log("updating messagesList");
+          if (change.type === "added") {
+            setMessagesList((ml) => [
+              ...ml,
+              {
+                id: change.doc.id,
+                profilePicUrl: message.profilePicUrl,
+                text: message.text,
+                author: message.author,
+              },
+            ]);
+          } else {
+            console.log("holi");
+          }
+        });
+      });
+  
+      return () => {
+        console.log("unsubscribe");
+        setMessagesList([]);
+        unsubscribe();
+      };
+    }, [chatPath]);
+  
+
     return (
       <Box className={styles.chatBody}>
-        <MessageOther />
-        <MessageOther />
-        <MessageMe />
-        <MessageOther />
-        <MessageMe />
-        <MessageOther />
-        <MessageOther />
-        <MessageOther />
-        <MessageOther />
+        <ul>{listItems}</ul>
       </Box>
     );
   }
 
-  // interface MessageProps {
-//   avatarSrc: string;
-//   avatarBool: boolean;
-//   message: string;
-// }
-function MessageOther() {
+interface MessageProps {
+  author: string;
+  profilePicUrl: string;
+  text: string;
+}
+function MessageOther({author, profilePicUrl, text}: MessageProps) {
     return (
       <div className={styles.messageOther}>
         <Avatar
           size="sm"
-          name="Kent Dodds"
-          src="https://bit.ly/kent-c-dodds"
+          name={author}
+          src={profilePicUrl}
           marginRight="8px"
+          marginTop="5px"
+          // padding="10px"
         />
         <Tag fontSize="lg" padding="10px">
-          Hola, que tal todo ? Voy bien y vos que tal la vida de la puta madre que
-          lo pario
+          {text}
         </Tag>
         <Box minWidth="15%" />
       </div>

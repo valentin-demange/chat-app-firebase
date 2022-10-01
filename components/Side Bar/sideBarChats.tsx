@@ -6,8 +6,6 @@ export default function SideBarChats() {
   return (
     <Box className={styles.sbItemsContainer}>
       <SideBarChatItem />
-      <SideBarChatItem />
-
     </Box>
   );
 }
@@ -15,13 +13,13 @@ export default function SideBarChats() {
 function SideBarChatItem() {
   return (
     <Button className={styles.sbItem} variant="ghost" padding={0}>
-      <Avatar name="Kola Tioluwani" src="https://bit.ly/tioluwani-kolawole" />
+      <Avatar name="Blabla profile pic" backgroundColor="gray.200" src="blabla-profile-pic.png" />
       <div className={styles.sbItemLabel}>
         <Text fontSize="18px" fontWeight="normal">
-          Valentin Demange Delagarde
+          Blabla 19-90
         </Text>
         <Text fontSize={13} fontWeight="normal" color="gray.400" paddingTop="3px">
-          Last message at 11:15
+          To be implemented
         </Text>
       </div>
     </Button>

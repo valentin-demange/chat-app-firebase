@@ -20,13 +20,13 @@ import {
 export default function ChatHeader() {
     return (
       <Box borderColor="gray.400" className={styles.chatHeader}>
-        <Avatar name="Kola Tioluwani" src="https://bit.ly/tioluwani-kolawole" />
+        <Avatar name="Gilbert" backgroundColor="gray.200" src="blabla-profile-pic.png" />
         <div className={styles.chatHeaderLabel}>
           <Heading as="h1" size="md" fontWeight="normal">
-            Hola que tal
+            Blabla 19-90
           </Heading>
           <Text fontSize={13} fontWeight="normal" color="gray.400">
-            Last message at 11:15
+            To be implemented
           </Text>
         </div>
         <Menu>
@@ -40,7 +40,7 @@ export default function ChatHeader() {
             fontSize={20}
           />
           <MenuList>
-            <MenuItem icon={<ExternalLinkIcon />}>Leave</MenuItem>
+            <MenuItem icon={<ExternalLinkIcon />} isDisabled>Leave</MenuItem>
           </MenuList>
         </Menu>
       </Box>
