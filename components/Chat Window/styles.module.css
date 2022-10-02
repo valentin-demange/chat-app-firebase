@@ -24,10 +24,11 @@
   .chatBody {
     flex:1;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 5px 10px;
     /* justify-content: flex-end; */
     overflow-y: auto;
+    /* overflow-x: unset; */
   }
 
   .messageOther {

@@ -9,10 +9,8 @@ import { db } from "@/components/Firebase/firebase";
 // import { doc, collection, getDocs, addDoc } from "firebase/firestore";
 // import { collection, addDoc, getDocs, doc, onSnapshot } from "firebase/firestore";
 import {
-  getFirestore,
   collection,
   onSnapshot,
-  doc,
   query,
   orderBy,
   limit,
@@ -23,14 +21,7 @@ import { SelectedChatContext } from '@/components/Context/context';
 export default function ChatBody() {
 
     const [messagesList, setMessagesList] = useState<JSX.Element[]>([]);
-    // interface message {
-    //   id: string;
-    //   profilePicUrl: string;
-    //   text: string;
-    //   author: string;
-    // }
     const chatPath = [useContext(SelectedChatContext), "messages"].join("/");
-    // const listItems = messagesList.map((m) => <MessageOther key={m.id} author={m.author} profilePicUrl={m.profilePicUrl} text={m.text}></MessageOther>)
   
     useEffect(() => {
       // Create the query to load the last x messages and listen for new ones.
@@ -40,9 +31,6 @@ export default function ChatBody() {
         limit(20)
       );
   
-      // console.log({recentMessagesQuery})
-      // console.log("setting onSnapshot")
-      // Start listening to the query.
       const unsubscribe = onSnapshot(recentMessagesQuery, function (snapshot) {
         snapshot.docChanges().forEach(function (change) {
           var message = change.doc.data();
