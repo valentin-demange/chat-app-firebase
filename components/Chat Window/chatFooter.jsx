@@ -17,7 +17,9 @@ export default function ChatFooter() {
     setTextMessage(e.target.value);
   };
 
-  const handleOnSubmit = async () => {
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    if (textMessage === "") return
     setTextMessage("");
     // Add a new document with a generated id.
     const docRef = await addDoc(collection(db, chatPath), {
@@ -30,7 +32,10 @@ export default function ChatFooter() {
   };
 
   return (
+    <form onSubmit={handleOnSubmit}>
+
     <Box borderColor="gray.400" className={styles.chatFooter}>
+
       <Input
         placeholder="Aa"
         flex={1}
@@ -44,8 +49,9 @@ export default function ChatFooter() {
         icon={<ArrowRightIcon />}
         size="md"
         fontSize={14}
-        onClick={handleOnSubmit}
+        type="submit"
       />
     </Box>
+    </form>
   );
 }
