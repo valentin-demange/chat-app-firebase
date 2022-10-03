@@ -3,7 +3,7 @@
 I made this chat app for multiple purposes :
 - Building my first web app in React - with "Hook paradigm" in mind
 - Integration with Firebase (BaaS)
-- Testing implementation of Next JS, Typescript, Chakra-UI and third-party hooks on a real project
+- Implementation of Next JS, Typescript, Chakra-UI and third-party hooks on a real project
 
 [Live Demo](https://vdemange-chat-app.vercel.app/) :point_left:
 
