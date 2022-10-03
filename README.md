@@ -1,6 +1,11 @@
 # Chat App
 
-Chat App created with React & Firebase.
+I made this chat app for multiple purposes :
+- Building my first web app in React - with "Hook paradigm" in mind
+- Integration with Firebase (BaaS)
+- Testing implementation of Next JS, Typescript, Chakra-UI on a real project
+
+All features have not been implemented yet, more details below 
 
 [Live Demo](https://vdemange-chat-app.vercel.app/) :point_left:
 
