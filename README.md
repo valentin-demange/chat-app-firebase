@@ -15,7 +15,7 @@ I made this chat app for multiple purposes :
 
 ### To be implemented
 
-- Display last message timestamp
+- Display "last message" timestamp
 - Create / Delete private chats
 
 ## Built with
