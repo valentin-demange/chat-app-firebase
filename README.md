@@ -20,8 +20,9 @@ I made this chat app for multiple purposes :
 
 ## Built with
 
-- [TypeScript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
-- [Chakra-UI](https://chakra-ui.com/)
+- [Next.js](https://nextjs.org/)
 - [Firebase](https://firebase.google.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Chakra-UI](https://chakra-ui.com/)
 - [react-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks)
