@@ -25,4 +25,4 @@ I made this chat app for multiple purposes :
 - [Firebase](https://firebase.google.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Chakra-UI](https://chakra-ui.com/)
-- [react-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks)
+- [React-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks)
