@@ -5,7 +5,7 @@ I made this chat app for multiple purposes :
 - Integration with Firebase (BaaS)
 - Implementation of Next JS, Typescript, Chakra-UI and third-party hooks on a real project
 
-[Live Demo](https://vdemange-chat-app.vercel.app/) :point_left:
+[Live Demo](https://blabla-19-90.vercel.app/) :point_left:
 
 ### Features
 
