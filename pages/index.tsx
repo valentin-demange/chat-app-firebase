@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Box, Button } from "@chakra-ui/react";
 import Link from "next/link";
 import styles from "./index.module.css";
-import SignInGoogle from "@/components/Firebase/firebaseAuth";
+import SignInGoogle from "@/components/Login/signInGoogle";
 import firebase from "firebase/compat/app";
 
 export default function Home() {

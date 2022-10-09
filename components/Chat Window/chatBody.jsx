@@ -5,9 +5,7 @@ import {
   Tag,
 } from "@chakra-ui/react";
 import React, { useState, useEffect, useContext } from "react";
-import { db } from "@/components/Firebase/firebase";
-// import { doc, collection, getDocs, addDoc } from "firebase/firestore";
-// import { collection, addDoc, getDocs, doc, onSnapshot } from "firebase/firestore";
+import { db } from "utils/firebase";
 import {
   collection,
   onSnapshot,
@@ -15,18 +13,19 @@ import {
   orderBy,
   limit,
 } from "firebase/firestore";
-import { SelectedChatContext } from '@/components/Context/context';
+import { CurrentChatContext, UserContext } from 'utils/context';
 
 
 export default function ChatBody() {
 
-    const [messagesList, setMessagesList] = useState<JSX.Element[]>([]);
-    const chatPath = [useContext(SelectedChatContext), "messages"].join("/");
-  
+    const [messagesList, setMessagesList] = useState([]);
+    const chatMessagesPath = ["chats", useContext(CurrentChatContext), "messages"].join("/");
+    const user = useContext(UserContext);
+
     useEffect(() => {
       // Create the query to load the last x messages and listen for new ones.
       const recentMessagesQuery = query(
-        collection(db, chatPath),
+        collection(db, chatMessagesPath),
         orderBy("timestamp"),
         limit(20)
       );
@@ -38,10 +37,12 @@ export default function ChatBody() {
           if (change.type === "added") {
             setMessagesList((ml) => [
               ...ml,
-              <MessageOther key={change.doc.id} author={message.author} profilePicUrl={message.profilePicUrl} text={message.text}></MessageOther>
+              (user.uid === message.authorId ?
+              <MessageMe key={change.doc.id} text={message.text}></MessageMe> :
+              <MessageOther key={change.doc.id} profilePicUrl={message.profilePicUrl} text={message.text}></MessageOther>)
             ]);
           } else {
-            console.log("holi");
+            // console.log("holi");
           }
         });
       });
@@ -51,7 +52,7 @@ export default function ChatBody() {
         setMessagesList([]);
         unsubscribe();
       };
-    }, [chatPath]);
+    }, [chatMessagesPath]);
   
 
     return (
@@ -61,20 +62,21 @@ export default function ChatBody() {
     );
   }
 
-interface MessageProps {
-  author: string;
-  profilePicUrl: string;
-  text: string;
-}
-function MessageOther({author, profilePicUrl, text}: MessageProps) {
+// interface MessageProps {
+//   author: string;
+//   profilePicUrl: string;
+//   text: string;
+// }
+function MessageOther({profilePicUrl, text}) {
     return (
       <div className={styles.messageOther}>
         <Avatar
           size="sm"
-          name={author}
+          // name={author}
           src={profilePicUrl}
           marginRight="8px"
           marginTop="5px"
+          backgroundColor="gray.100"
           // padding="10px"
         />
         <Tag fontSize="lg" padding="10px">
@@ -85,12 +87,12 @@ function MessageOther({author, profilePicUrl, text}: MessageProps) {
     );
   }
   
-  function MessageMe() {
+  function MessageMe({text}) {
     return (
       <div className={styles.messageMe}>
         <Box minWidth="20%" />
         <Tag fontSize="lg" padding="10px" colorScheme="blue">
-          Vengo bien la verdad. Y vos que haces de tu vida boludo ?
+          {text}
         </Tag>
       </div>
     );

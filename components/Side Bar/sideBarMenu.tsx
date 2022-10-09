@@ -9,7 +9,7 @@ import {
   MoonIcon,
 } from "@chakra-ui/icons";
 import UserAvatar from "./userAvatar"
-import NewChatMenu from "./newChatMenu";
+import PrivateChatDrawer from "./privateChatDrawer";
 
 export default function SideBarMenu() {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -17,7 +17,7 @@ export default function SideBarMenu() {
       <Box className={styles.sbMenuContainer}>
         <UserAvatar />
   
-        <NewChatMenu />
+        <PrivateChatDrawer />
 
         <IconButton
           onClick={toggleColorMode}

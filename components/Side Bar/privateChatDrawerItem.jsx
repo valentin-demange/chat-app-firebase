@@ -1,0 +1,53 @@
+import React, { useState, useEffect, useContext } from "react";
+import { Button, Avatar, Text } from "@chakra-ui/react";
+import styles from "./styles.module.css";
+import { UserContext, SetCurrentChatContext } from "utils/context";
+import AvatarUser from "@/components/Others/avatarUser";
+import TextUser from "@/components/Others/textUser";
+import { collection, addDoc, setDoc, updateDoc, doc} from "firebase/firestore";
+import { db } from "utils/firebase";
+
+export default function PrivateChatDrawerItem({ userUid, handleCloseDrawer }) {
+  const user = useContext(UserContext);
+  const SetCurrentChat = useContext(SetCurrentChatContext);
+
+  const handleOnClick = async (e) => {
+    e.preventDefault();
+    // Add a new document with a generated id.
+    // const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+    
+    const chatId = Math.random().toString(16).slice(2)
+    await setDoc(doc(db, "chats", chatId), {
+      chatId: chatId,
+      lastMessage: null,
+      membersUid: [user.uid, userUid],
+      private: true,
+    }).then(SetCurrentChat(chatId)); 
+    await setDoc(doc(db, ["users", userUid, "chats"].join("/"), chatId), {
+      chatId: chatId,
+    }); 
+    await setDoc(doc(db, ["users", user.uid, "chats"].join("/"), chatId), {
+      chatId: chatId,
+    });
+    handleCloseDrawer();
+
+    // debugger
+    console.log("Chat created with ID: ", chatId);
+  };
+
+
+  return (
+    <Button
+      className={styles.sbDrawerItem}
+      variant="ghost"
+      padding={0}
+      minW="100%"
+      onClick={handleOnClick}
+    >
+      <AvatarUser uid={userUid} />
+      <div className={styles.sbDrawerItemLabel}>
+        <TextUser uid={userUid} />
+      </div>
+    </Button>
+  );
+}

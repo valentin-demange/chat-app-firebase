@@ -9,11 +9,11 @@ Chat App created with React & Firebase.
 - Google sign in
 - Toggle dark / light theme
 - Responsive design
+- Public & Private chats
 
 ### To be implemented
 
-- Display last message timestamp
-- Create / Delete private chats
+- Typescript
 
 ## Built with
 

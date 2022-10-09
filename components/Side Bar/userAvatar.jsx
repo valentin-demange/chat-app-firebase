@@ -1,6 +1,6 @@
 import { signOut } from "firebase/auth";
 import "firebase/compat/auth";
-import {auth} from "../Firebase/firebase";
+import {auth} from "../../utils/firebase";
 
 import {
   IconButton,
@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { useContext } from 'react';
-import { UserContext } from '@/components/Context/context';
+import { UserContext } from 'utils/context';
 
 
 const logout = () => {

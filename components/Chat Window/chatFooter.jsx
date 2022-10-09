@@ -2,15 +2,17 @@ import styles from "./styles.module.css";
 import { Box, IconButton, Input } from "@chakra-ui/react";
 import { ArrowRightIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "@/components/Firebase/firebase";
+import { collection, addDoc, setDoc, updateDoc, doc } from "firebase/firestore";
+import { db } from "utils/firebase";
 import firebase from 'firebase/compat/app'
 import { useContext } from 'react';
-import { UserContext, SelectedChatContext } from '@/components/Context/context';
+import { UserContext, CurrentChatContext } from 'utils/context';
 
 export default function ChatFooter() {
   const [textMessage, setTextMessage] = useState("");
-  const chatPath = [useContext(SelectedChatContext), "messages"].join("/");
+  const currentChat = useContext(CurrentChatContext);
+  const chatPath = ["chats", currentChat].join("/");
+  const msgCollectionPath = [chatPath, "messages"].join("/");
   const user = useContext(UserContext);
 
   const handleInputChange = (e) => {
@@ -22,12 +24,17 @@ export default function ChatFooter() {
     if (textMessage === "") return
     setTextMessage("");
     // Add a new document with a generated id.
-    const docRef = await addDoc(collection(db, chatPath), {
-      profilePicUrl: user.photoURL,
-      author: user.displayName,
-      text: textMessage,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+    await updateDoc(doc(db, "chats", currentChat), {
+      lastMessage: timestamp,
     });
+    const docRef = await addDoc(collection(db, msgCollectionPath), {
+      profilePicUrl: user.photoURL,
+      authorId: user.uid,
+      text: textMessage,
+      timestamp: timestamp,
+    }); 
+    // debugger
     console.log("Document written with ID: ", docRef.id);
   };
 
@@ -37,7 +44,7 @@ export default function ChatFooter() {
     <Box borderColor="gray.400" className={styles.chatFooter}>
 
       <Input
-        placeholder="Aa"
+        placeholder="Type your message.."
         flex={1}
         onChange={handleInputChange}
         value={textMessage}
