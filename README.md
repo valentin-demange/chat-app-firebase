@@ -28,6 +28,14 @@ I made this chat app for multiple purposes :
 - [Chakra-UI](https://chakra-ui.com/)
 - [React-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks)
 
+## Inspired by
+
+- [The Odin Project](https://www.theodinproject.com)
+- [Michal Osman's project](https://github.com/michalosman/chat-app-firebase)
+- [Messenger](https://messenger.com)
+- [Whatsapp](https://web.whatsapp.com/)
+
+
 ## Screenshots
 
 ### Desktop
