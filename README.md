@@ -20,7 +20,7 @@ I made this chat app for multiple purposes :
 - Make Gilbert answer with GPT-3 API (Cloud functions for Firebase)
 - Implement backend with Node.js (MERN stack)
 
-## Built with
+### Built with
 
 - [React](https://reactjs.org/)
 - [Next.js](https://nextjs.org/)
@@ -28,7 +28,7 @@ I made this chat app for multiple purposes :
 - [Chakra-UI](https://chakra-ui.com/)
 - [React-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks)
 
-## Inspired by
+### Inspired by
 
 - [The Odin Project](https://www.theodinproject.com)
 - [Michal Osman's project](https://github.com/michalosman/chat-app-firebase)
