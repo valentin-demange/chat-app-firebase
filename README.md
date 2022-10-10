@@ -30,10 +30,10 @@ I made this chat app for multiple purposes :
 
 ## Screenshots
 
-### Mobile
-
-![mobile-dark](https://user-images.githubusercontent.com/40360401/151681357-fe49eb57-6f11-439e-a85a-18fb34adb023.png)
-
 ### Desktop
 
-![desktop-light](https://user-images.githubusercontent.com/40360401/151681199-a882d89b-8fc6-474f-ab53-f509abaf0715.png)
+<img src="https://user-images.githubusercontent.com/42913023/194820468-1a3ef392-dc0f-41a4-9500-c2d389f3e071.png" alt="drawing" width="800"/>
+
+### Mobile
+
+<img src="https://user-images.githubusercontent.com/42913023/194820487-1ff06f4c-37e0-4421-979c-bbddb4e92476.png" alt="drawing" width="300"/>
