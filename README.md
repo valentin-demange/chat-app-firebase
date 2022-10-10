@@ -27,3 +27,13 @@ I made this chat app for multiple purposes :
 - [Firebase](https://firebase.google.com/)
 - [Chakra-UI](https://chakra-ui.com/)
 - [React-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks)
+
+## Screenshots
+
+### Mobile
+
+![mobile-dark](https://user-images.githubusercontent.com/40360401/151681357-fe49eb57-6f11-439e-a85a-18fb34adb023.png)
+
+### Desktop
+
+![desktop-light](https://user-images.githubusercontent.com/40360401/151681199-a882d89b-8fc6-474f-ab53-f509abaf0715.png)
