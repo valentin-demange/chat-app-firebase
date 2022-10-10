@@ -24,12 +24,12 @@ import {
 } from "react-firebase-hooks/firestore";
 import { db } from "utils/firebase";
 import { userAgent } from "next/server";
-import { CurrentChatContext, UserContext } from "utils/context";
+import { CurrentChatContext, CurrentUserContext } from "utils/context";
 import PrivateChatDrawerItem from "./privateChatDrawerItem";
 
 export default function PrivateChatDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const user = useContext(UserContext);
+  const currentUser = useContext(CurrentUserContext);
   const [value, loading, error] = useCollectionData(collection(db, "users"), {
     snapshotListenOptions: { includeMetadataChanges: true },
   });
@@ -40,7 +40,7 @@ export default function PrivateChatDrawer() {
   if (value) {
     // value.map((val) => console.log(val.photoURL))
     const listItems = value
-      .filter((val) => val.uid !== user.uid)
+      .filter((val) => val.uid !== currentUser.uid)
       .map((val) => <PrivateChatDrawerItem key={val.uid} userUid={val.uid} handleCloseDrawer={onClose} />);
 
     return (

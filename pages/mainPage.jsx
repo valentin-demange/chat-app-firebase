@@ -11,26 +11,26 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import "firebase/compat/auth";
 import { auth } from "utils/firebase";
 import {
-  UserContext,
+  CurrentUserContext,
   CurrentChatContext,
   SetCurrentChatContext,
 } from "utils/context";
 
 export default function ChatApp() {
-  const [user, loading, error] = useAuthState(auth);
+  const [currentUser, loading, error] = useAuthState(auth);
   const [currentChat, setCurrentChat] = useState("public");
 
-  if (user)
+  if (currentUser)
     return (
       <div className={styles.container}>
-        <UserContext.Provider value={user}>
+        <CurrentUserContext.Provider value={currentUser}>
           <CurrentChatContext.Provider value={currentChat}>
             <SetCurrentChatContext.Provider value={setCurrentChat}>
               <SideBar />
               <ChatWindow />
             </SetCurrentChatContext.Provider>
           </CurrentChatContext.Provider>
-        </UserContext.Provider>
+        </CurrentUserContext.Provider>
       </div>
     );
 

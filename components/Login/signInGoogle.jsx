@@ -13,7 +13,7 @@ import {
 } from "firebase/firestore";
 
 export default function SignInGoogle() {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, currentUser, loading, error] = useSignInWithGoogle(auth);
 
   if (error) {
     return (
@@ -25,21 +25,21 @@ export default function SignInGoogle() {
   if (loading) {
     return <p>Loading...</p>;
   }
-  if (user) {
-    // We update the user in Firestore Database
+  if (currentUser) {
+    // We update the currentUser in Firestore Database
     const updateUserInDatabase = async () => {
       // debugger
-      const userRef = doc(db, 'users', user.user.uid);
-      console.log("updating user info in database")
+      const userRef = doc(db, 'users', currentUser.user.uid);
+      console.log("updating currentUser info in database")
       await setDoc(userRef, {
-        name: user.user.displayName,
-        photoURL: user.user.photoURL,
-        uid: user.user.uid,
+        name: currentUser.user.displayName,
+        photoURL: currentUser.user.photoURL,
+        uid: currentUser.user.uid,
       });
-      await setDoc(doc(db, ["users", user.user.uid, "chats"].join("/"), "public"), {chatId: "public"})
+      await setDoc(doc(db, ["users", currentUser.user.uid, "chats"].join("/"), "public"), {chatId: "public"})
     };
 
-    updateUserInDatabase(user)
+    updateUserInDatabase(currentUser)
       .then(() => (window.location = "mainPage"))
       .catch((e) => {
         throw e;

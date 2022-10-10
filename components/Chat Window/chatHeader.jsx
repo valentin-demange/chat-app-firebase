@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import React, { useContext } from "react";
-import { CurrentChatContext, UserContext } from "utils/context";
+import { CurrentChatContext, CurrentUserContext, SetCurrentChatContext } from "utils/context";
 import { db } from "utils/firebase";
 import { deleteDoc, doc} from "firebase/firestore";
 import { useDocumentData } from "react-firebase-hooks/firestore";
@@ -20,8 +20,9 @@ import AvatarUser from "@/components/Others/avatarUser";
 import TextUser from "@/components/Others/textUser";
 
 export default function ChatHeader() {
-  const user = useContext(UserContext);
+  const currentUser = useContext(CurrentUserContext);
   const currentChat = useContext(CurrentChatContext);
+  const SetCurrentChat = useContext(SetCurrentChatContext);
 
   const [chatInfo, loading, error] = useDocumentData(
     doc(db, "chats", currentChat),
@@ -34,12 +35,13 @@ export default function ChatHeader() {
 
   
     const memberUid = chatInfo.private
-      ? chatInfo.membersUid.filter((uid) => user.uid !== uid)[0]
+      ? chatInfo.membersUid.filter((uid) => currentUser.uid !== uid)[0]
       : null;
 
       const handleOnClick = async (e) => {
         e.preventDefault();
-        await deleteDoc(doc(db, ["users", user.uid, "chats", chatInfo.chatId].join("/"))); 
+        SetCurrentChat("public");
+        await deleteDoc(doc(db, ["users", currentUser.uid, "chats", chatInfo.chatId].join("/"))); 
         await deleteDoc(doc(db, ["users", memberUid, "chats", chatInfo.chatId].join("/"))); 
         await deleteDoc(doc(db, "chats", chatInfo.chatId)); 
         console.log("Chat ID ", chatInfo.chatId, "has been deleted");

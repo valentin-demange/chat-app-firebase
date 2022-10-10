@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Button, Avatar, Text } from "@chakra-ui/react";
 import styles from "./styles.module.css";
-import { UserContext, SetCurrentChatContext } from "utils/context";
+import { CurrentUserContext, SetCurrentChatContext } from "utils/context";
 import AvatarUser from "@/components/Others/avatarUser";
 import TextUser from "@/components/Others/textUser";
 import { collection, addDoc, setDoc, updateDoc, doc} from "firebase/firestore";
 import { db } from "utils/firebase";
 
 export default function PrivateChatDrawerItem({ userUid, handleCloseDrawer }) {
-  const user = useContext(UserContext);
+  const currentUser = useContext(CurrentUserContext);
   const SetCurrentChat = useContext(SetCurrentChatContext);
 
   const handleOnClick = async (e) => {
@@ -20,13 +20,13 @@ export default function PrivateChatDrawerItem({ userUid, handleCloseDrawer }) {
     await setDoc(doc(db, "chats", chatId), {
       chatId: chatId,
       lastMessage: null,
-      membersUid: [user.uid, userUid],
+      membersUid: [currentUser.uid, userUid],
       private: true,
     }).then(SetCurrentChat(chatId)); 
     await setDoc(doc(db, ["users", userUid, "chats"].join("/"), chatId), {
       chatId: chatId,
     }); 
-    await setDoc(doc(db, ["users", user.uid, "chats"].join("/"), chatId), {
+    await setDoc(doc(db, ["users", currentUser.uid, "chats"].join("/"), chatId), {
       chatId: chatId,
     });
     handleCloseDrawer();

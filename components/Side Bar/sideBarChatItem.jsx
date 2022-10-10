@@ -3,7 +3,7 @@ import { Box, Avatar, Button, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import AvatarUser from "@/components/Others/avatarUser";
 import TextUser from "@/components/Others/textUser";
-import { UserContext, SetCurrentChatContext } from "utils/context";
+import { CurrentUserContext, SetCurrentChatContext } from "utils/context";
 import { db } from "utils/firebase";
 import { collection, doc } from "firebase/firestore";
 import {
@@ -12,7 +12,7 @@ import {
 } from "react-firebase-hooks/firestore";
 
 export default function SideBarChatItem({ chatId }) {
-  const user = useContext(UserContext);
+  const currentUser = useContext(CurrentUserContext);
   const SetCurrentChat = useContext(SetCurrentChatContext);
 
   const [chatInfo, loading, error] = useDocumentData(doc(db, "chats", chatId), {
@@ -23,7 +23,7 @@ export default function SideBarChatItem({ chatId }) {
   if (error) return <div>Error</div>;
   if (chatInfo) {
     const memberUid = chatInfo.private
-      ? chatInfo.membersUid.filter((uid) => user.uid !== uid)[0]
+      ? chatInfo.membersUid.filter((uid) => currentUser.uid !== uid)[0]
       : null;
     return (
       <Button

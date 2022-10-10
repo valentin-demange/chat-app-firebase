@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { useContext } from 'react';
-import { UserContext } from 'utils/context';
+import { CurrentUserContext } from 'utils/context';
 
 
 const logout = () => {
@@ -21,14 +21,14 @@ const logout = () => {
 };
 
 export default function UserAvatar() {
-  const user = useContext(UserContext);
+  const currentUser = useContext(CurrentUserContext);
 
     return (
       <Menu>
         <MenuButton
           as={IconButton}
           aria-label="Options"
-          icon={<Avatar size="sm" src={user.photoURL} rel={"noreferrer"}/>}
+          icon={<Avatar size="sm" src={currentUser.photoURL} rel={"noreferrer"}/>}
           variant="ghost"
           isRound={true}
           fontSize={20}

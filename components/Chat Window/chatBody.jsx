@@ -13,14 +13,14 @@ import {
   orderBy,
   limit,
 } from "firebase/firestore";
-import { CurrentChatContext, UserContext } from 'utils/context';
+import { CurrentChatContext, CurrentUserContext } from 'utils/context';
 
 
 export default function ChatBody() {
 
     const [messagesList, setMessagesList] = useState([]);
     const chatMessagesPath = ["chats", useContext(CurrentChatContext), "messages"].join("/");
-    const user = useContext(UserContext);
+    const currentUser = useContext(CurrentUserContext);
 
     useEffect(() => {
       // Create the query to load the last x messages and listen for new ones.
@@ -37,7 +37,7 @@ export default function ChatBody() {
           if (change.type === "added") {
             setMessagesList((ml) => [
               ...ml,
-              (user.uid === message.authorId ?
+              (currentUser.uid === message.authorId ?
               <MessageMe key={change.doc.id} text={message.text}></MessageMe> :
               <MessageOther key={change.doc.id} profilePicUrl={message.profilePicUrl} text={message.text}></MessageOther>)
             ]);

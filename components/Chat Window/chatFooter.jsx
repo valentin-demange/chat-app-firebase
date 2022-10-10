@@ -6,14 +6,14 @@ import { collection, addDoc, setDoc, updateDoc, doc } from "firebase/firestore";
 import { db } from "utils/firebase";
 import firebase from 'firebase/compat/app'
 import { useContext } from 'react';
-import { UserContext, CurrentChatContext } from 'utils/context';
+import { CurrentUserContext, CurrentChatContext } from 'utils/context';
 
 export default function ChatFooter() {
   const [textMessage, setTextMessage] = useState("");
   const currentChat = useContext(CurrentChatContext);
   const chatPath = ["chats", currentChat].join("/");
   const msgCollectionPath = [chatPath, "messages"].join("/");
-  const user = useContext(UserContext);
+  const currentUser = useContext(CurrentUserContext);
 
   const handleInputChange = (e) => {
     setTextMessage(e.target.value);
@@ -29,8 +29,8 @@ export default function ChatFooter() {
       lastMessage: timestamp,
     });
     const docRef = await addDoc(collection(db, msgCollectionPath), {
-      profilePicUrl: user.photoURL,
-      authorId: user.uid,
+      profilePicUrl: currentUser.photoURL,
+      authorId: currentUser.uid,
       text: textMessage,
       timestamp: timestamp,
     }); 
