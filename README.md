@@ -18,7 +18,7 @@ I made this chat app for multiple purposes :
 
 - [TypeScript](https://www.typescriptlang.org/)
 - Make Gilbert answer with GPT-3 API (Cloud functions for Firebase)
-- Implement backend with Node.js (MERN stack)
+- Implement backend with Node.js (PERN or MERN stack)
 
 ### Built with
 
