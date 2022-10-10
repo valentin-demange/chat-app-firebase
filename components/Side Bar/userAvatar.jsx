@@ -17,7 +17,7 @@ import { CurrentUserContext } from 'utils/context';
 
 const logout = () => {
   signOut(auth);
-  window.location = "/";
+  window.location.href = "/";
 };
 
 export default function UserAvatar() {
