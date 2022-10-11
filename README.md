@@ -16,7 +16,6 @@ I made this chat app for multiple purposes :
 
 ### To be implemented
 
-- [TypeScript](https://www.typescriptlang.org/)
 - Make Gilbert answer with GPT-3 API (Cloud functions for Firebase)
 - Implement backend with Node.js (PERN or MERN stack)
 
@@ -25,6 +24,7 @@ I made this chat app for multiple purposes :
 - [React](https://reactjs.org/)
 - [Next.js](https://nextjs.org/)
 - [Firebase](https://firebase.google.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Chakra-UI](https://chakra-ui.com/)
 - [React-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks)
 
