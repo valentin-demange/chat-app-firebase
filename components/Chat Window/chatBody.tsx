@@ -23,8 +23,11 @@ export default function ChatBody() {
     const chatMessagesPath = ["chats", useContext(CurrentChatContext), "messages"].join("/");
     const currentUser = useContext(CurrentUserContext);
 
+
+    // chatBody.tsx is the only file which is not using firebase-hooks
+    // It has been done on purpose to try a useEffect implementation on my own
+    // and not rely on third party hooks
     useEffect(() => {
-      // Create the query to load the last x messages and listen for new ones.
       const recentMessagesQuery = query(
         collection(db, chatMessagesPath),
         orderBy("timestamp"),
@@ -42,8 +45,6 @@ export default function ChatBody() {
               <MessageMe key={change.doc.id} text={message.text}></MessageMe> :
               <MessageOther key={change.doc.id} profilePicUrl={message.profilePicUrl} text={message.text}></MessageOther>)
             ]);
-          } else {
-            // console.log("holi");
           }
         });
       });
@@ -63,11 +64,6 @@ export default function ChatBody() {
     );
   }
 
-// interface MessageProps {
-//   author: string;
-//   profilePicUrl: string;
-//   text: string;
-// }
 function MessageOther({profilePicUrl, text} : {profilePicUrl : string, text : string}) {
     return (
       <div className={styles.messageOther}>
