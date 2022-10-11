@@ -31,9 +31,9 @@ export default function SignInGoogle() {
       // debugger
       const userRef = doc(db, 'users', currentUser.user.uid);
       console.log("updating currentUser info in database")
-      // If user = Gilbert, we do not overwrite info, since it will change
-      // username back to "Valentin Demange" :(
-      if (currentUser.user.uid === "s8EZPnz4RgTRxXaEUTOiQSwDxIC3") return
+      // // If user = Gilbert, we do not overwrite info, since it will change
+      // // username back to "Valentin Demange" :(
+      // if (currentUser.user.uid === "s8EZPnz4RgTRxXaEUTOiQSwDxIC3") return
       await setDoc(userRef, {
         name: currentUser.user.displayName,
         photoURL: currentUser.user.photoURL,
