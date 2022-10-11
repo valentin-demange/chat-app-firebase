@@ -35,6 +35,10 @@ I made this chat app for multiple purposes :
 - [Messenger](https://messenger.com)
 - [Whatsapp](https://web.whatsapp.com/)
 
+## Lighthouse scores (Desktop)
+
+<img src="https://user-images.githubusercontent.com/42913023/195073547-f8dfd16d-7119-4a08-ace6-3e7443003198.jpg" alt="drawing" width="400"/>
+
 
 ## Screenshots
 
