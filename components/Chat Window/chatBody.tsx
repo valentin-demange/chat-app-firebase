@@ -18,7 +18,8 @@ import { CurrentChatContext, CurrentUserContext } from 'utils/context';
 
 export default function ChatBody() {
 
-    const [messagesList, setMessagesList] = useState([]);
+
+    const [messagesList, setMessagesList] = useState<JSX.Element[]>([])
     const chatMessagesPath = ["chats", useContext(CurrentChatContext), "messages"].join("/");
     const currentUser = useContext(CurrentUserContext);
 
@@ -67,7 +68,7 @@ export default function ChatBody() {
 //   profilePicUrl: string;
 //   text: string;
 // }
-function MessageOther({profilePicUrl, text}) {
+function MessageOther({profilePicUrl, text} : {profilePicUrl : string, text : string}) {
     return (
       <div className={styles.messageOther}>
         <Avatar
@@ -87,7 +88,7 @@ function MessageOther({profilePicUrl, text}) {
     );
   }
   
-  function MessageMe({text}) {
+  function MessageMe({text} : {text : string}) {
     return (
       <div className={styles.messageMe}>
         <Box minWidth="20%" />

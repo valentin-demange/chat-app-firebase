@@ -15,11 +15,11 @@ export default function ChatFooter() {
   const msgCollectionPath = [chatPath, "messages"].join("/");
   const currentUser = useContext(CurrentUserContext);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
     setTextMessage(e.target.value);
   };
 
-  const handleOnSubmit = async (e) => {
+  const handleOnSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (textMessage === "") return
     setTextMessage("");

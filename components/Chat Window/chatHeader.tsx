@@ -29,16 +29,14 @@ export default function ChatHeader() {
     { snapshotListenOptions: { includeMetadataChanges: true } }
   );
 
-  if (loading) return <div></div>;
-  if (error) return <div>Error</div>;
   if (chatInfo) {
 
   
     const memberUid = chatInfo.private
-      ? chatInfo.membersUid.filter((uid) => currentUser.uid !== uid)[0]
+      ? chatInfo.membersUid.filter((uid : string) => currentUser.uid !== uid)[0]
       : null;
 
-      const handleOnClick = async (e) => {
+      const handleOnClick = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         SetCurrentChat("public");
         await deleteDoc(doc(db, ["users", currentUser.uid, "chats", chatInfo.chatId].join("/"))); 
@@ -92,4 +90,7 @@ export default function ChatHeader() {
       </Box>
     );
   }
+  if (loading) return <></>;
+  if (error) return <div>Error</div>;
+  return <></>
 }
