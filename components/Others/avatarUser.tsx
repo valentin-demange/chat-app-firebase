@@ -9,7 +9,7 @@ export default function AvatarUser({ uid } : {uid:string}) {
     snapshotListenOptions: { includeMetadataChanges: true },
   });
 
-  if (loading) return <div></div>;
+  if (loading) return <></>;
   if (error) return <div>Error</div>;
   if (userInfo) {
     // console.log({userInfo})
@@ -17,4 +17,5 @@ export default function AvatarUser({ uid } : {uid:string}) {
       <Avatar name={userInfo.name} src={userInfo.photoURL} backgroundColor="gray.100"/>
     </div>;
   }
+  return <></>;
 }

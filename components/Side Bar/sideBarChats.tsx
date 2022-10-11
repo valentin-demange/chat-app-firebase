@@ -20,8 +20,6 @@ export default function SideBarChats() {
     }
   );
 
-  if (loading) return <div></div>;
-  if (error) return <div>Error</div>;
   if (value) {
     const listItem = value.map((val) => (
           <SideBarChatItem key={val.chatId} chatId={val.chatId} />
@@ -29,5 +27,8 @@ export default function SideBarChats() {
         // console.log(value)
     return <Box className={styles.sbItemsContainer}>{listItem}</Box>;
   }
+  if (loading) return <div></div>;
+  if (error) return <div>Error</div>;
+  return <></>
 }
 

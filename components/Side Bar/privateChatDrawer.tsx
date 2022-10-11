@@ -1,30 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import {
   IconButton,
-  Button,
   Drawer,
   DrawerOverlay,
   DrawerContent,
   DrawerHeader,
-  DrawerFooter,
   DrawerBody,
   DrawerCloseButton,
   useDisclosure,
-  Avatar,
-  Alert,
-  AlertIcon,
-  Text,
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
-import styles from "./styles.module.css";
-import { getFirestore, collection } from "firebase/firestore";
+import { collection } from "firebase/firestore";
 import {
-  useCollection,
   useCollectionData,
 } from "react-firebase-hooks/firestore";
 import { db } from "utils/firebase";
-import { userAgent } from "next/server";
-import { CurrentChatContext, CurrentUserContext } from "utils/context";
+import { CurrentUserContext } from "utils/context";
 import PrivateChatDrawerItem from "./privateChatDrawerItem";
 
 export default function PrivateChatDrawer() {
@@ -34,8 +25,6 @@ export default function PrivateChatDrawer() {
     snapshotListenOptions: { includeMetadataChanges: true },
   });
 
-  if (loading) return <div></div>;
-  if (error) return <div>Error</div>;
 
   if (value) {
     // value.map((val) => console.log(val.photoURL))
@@ -69,10 +58,6 @@ export default function PrivateChatDrawer() {
             <DrawerHeader>New Private Chat</DrawerHeader>
 
             <DrawerBody padding="10px 10px">
-              {/* <Alert status="warning" marginBottom="10px">
-                <AlertIcon />
-                Function not yet supported
-              </Alert> */}
               {listItems}
             </DrawerBody>
 
@@ -86,4 +71,7 @@ export default function PrivateChatDrawer() {
       </>
     );
   }
+  if (loading) return <div></div>;
+  if (error) return <div>Error</div>;
+  return <></>
 }

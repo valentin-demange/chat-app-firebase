@@ -7,22 +7,22 @@ import TextUser from "@/components/Others/textUser";
 import { collection, addDoc, setDoc, updateDoc, doc} from "firebase/firestore";
 import { db } from "utils/firebase";
 
-export default function PrivateChatDrawerItem({ userUid, handleCloseDrawer }) {
+export default function PrivateChatDrawerItem({ userUid, handleCloseDrawer } : {userUid:string, handleCloseDrawer:any}) {
   const currentUser = useContext(CurrentUserContext);
   const SetCurrentChat = useContext(SetCurrentChatContext);
 
-  const handleOnClick = async (e) => {
-    e.preventDefault();
+  const handleOnClick = async () => {
+    // e.preventDefault();
     // Add a new document with a generated id.
     // const timestamp = firebase.firestore.FieldValue.serverTimestamp();
     
-    const chatId = Math.random().toString(16).slice(2)
+    const chatId = Math.random().toString(16).slice(2);
     await setDoc(doc(db, "chats", chatId), {
       chatId: chatId,
       lastMessage: null,
-      membersUid: [currentUser.uid, userUid],
+      membersUid: [currentUser!.uid, userUid],
       private: true,
-    }).then(SetCurrentChat(chatId)); 
+    }).then(() => SetCurrentChat(chatId)); 
     await setDoc(doc(db, ["users", userUid, "chats"].join("/"), chatId), {
       chatId: chatId,
     }); 

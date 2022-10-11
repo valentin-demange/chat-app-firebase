@@ -28,7 +28,7 @@ export default function UserAvatar() {
         <MenuButton
           as={IconButton}
           aria-label="Options"
-          icon={<Avatar size="sm" src={currentUser.photoURL}/>}
+          icon={<Avatar size="sm" src={currentUser.photoURL as string}/>}
           variant="ghost"
           isRound={true}
           fontSize={20}

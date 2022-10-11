@@ -11,7 +11,7 @@ import {
   useCollectionData,
 } from "react-firebase-hooks/firestore";
 
-export default function SideBarChatItem({ chatId }) {
+export default function SideBarChatItem({ chatId } : {chatId : string}) {
   const currentUser = useContext(CurrentUserContext);
   const SetCurrentChat = useContext(SetCurrentChatContext);
 
@@ -19,11 +19,9 @@ export default function SideBarChatItem({ chatId }) {
     snapshotListenOptions: { includeMetadataChanges: true },
   });
 
-  if (loading) return <div></div>;
-  if (error) return <div>Error</div>;
   if (chatInfo) {
     const memberUid = chatInfo.private
-      ? chatInfo.membersUid.filter((uid) => currentUser.uid !== uid)[0]
+      ? chatInfo.membersUid.filter((uid : string) => currentUser.uid !== uid)[0]
       : null;
     return (
       <Button
@@ -68,4 +66,7 @@ export default function SideBarChatItem({ chatId }) {
       </Button>
     );
   }
+  if (loading) return <></>;
+  if (error) return <div>Error</div>;
+  return <></>
 }

@@ -17,8 +17,9 @@ import {
 } from "utils/context";
 
 export default function ChatApp() {
-  const [currentUser, loading, error] = useAuthState(auth);
+  const [currentUser, loading, error] = useAuthState(auth as any);
   const [currentChat, setCurrentChat] = useState("public");
+
 
   if (currentUser)
     return (

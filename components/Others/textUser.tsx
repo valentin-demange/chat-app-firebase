@@ -9,7 +9,7 @@ export default function TextUser({ uid } : {uid:string}) {
     snapshotListenOptions: { includeMetadataChanges: true },
   });
 
-  if (loading) return <div></div>;
+  if (loading) return <></>;
   if (error) return <div>Error</div>;
   if (userInfo) {
     // console.log({userInfo})
@@ -19,4 +19,5 @@ export default function TextUser({ uid } : {uid:string}) {
           </Text>
               </div>;
   }
+  return <></>
 }
