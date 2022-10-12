@@ -1,6 +1,6 @@
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import "firebase/compat/auth";
-import { auth, db } from "../../pages/api/firebase";
+import { auth, db } from "../../utils/firebase";
 import { Button } from "@chakra-ui/react";
 import {
   collection,

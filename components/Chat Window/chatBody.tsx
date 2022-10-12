@@ -5,7 +5,7 @@ import {
   Tag,
 } from "@chakra-ui/react";
 import React, { useState, useEffect, useContext } from "react";
-import { db } from "pages/api/firebase";
+import { db } from "utils/firebase";
 import {
   collection,
   onSnapshot,

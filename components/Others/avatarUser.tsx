@@ -1,6 +1,6 @@
 import { Avatar } from "@chakra-ui/react";
 import React from "react";
-import { db } from "pages/api/firebase";
+import { db } from "utils/firebase";
 import { doc } from "firebase/firestore";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 

@@ -3,7 +3,7 @@ import { Box, IconButton, Input } from "@chakra-ui/react";
 import { ArrowRightIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
 import { collection, addDoc, getDoc, updateDoc, doc } from "firebase/firestore";
-import { db } from "pages/api/firebase";
+import { db } from "utils/firebase";
 import firebase from "firebase/compat/app";
 import { useContext } from "react";
 import { CurrentUserContext, CurrentChatContext } from "utils/context";

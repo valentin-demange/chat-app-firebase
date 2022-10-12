@@ -13,7 +13,7 @@ import {
 import { HamburgerIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import React, { useContext } from "react";
 import { CurrentChatContext, CurrentUserContext, SetCurrentChatContext } from "utils/context";
-import { db } from "pages/api/firebase";
+import { db } from "utils/firebase";
 import { deleteDoc, doc} from "firebase/firestore";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import AvatarUser from "@/components/Others/avatarUser";
