@@ -5,7 +5,7 @@ import { CurrentUserContext, SetCurrentChatContext } from "utils/context";
 import AvatarUser from "@/components/Others/avatarUser";
 import TextUser from "@/components/Others/textUser";
 import { collection, addDoc, setDoc, updateDoc, doc} from "firebase/firestore";
-import { db } from "utils/firebase";
+import { db } from "pages/api/firebase";
 
 export default function PrivateChatDrawerItem({ userUid, handleCloseDrawer } : {userUid:string, handleCloseDrawer:any}) {
   const currentUser = useContext(CurrentUserContext);

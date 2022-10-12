@@ -16,4 +16,18 @@ const auth = app.auth()
 const db = app.firestore()
 const provider = new firebase.auth.GoogleAuthProvider()
 
-export { auth, db, provider }
+const writeDb = async () => {
+  
+}
+
+const checkGilbert = async () => {
+  const isGilbert = false;
+  const isFirstMsg = false;
+
+  return {
+    isGilbert: isGilbert,
+    isFistMsg: isFirstMsg,
+  }
+}
+
+export { auth, db, provider, writeDb, checkGilbert }

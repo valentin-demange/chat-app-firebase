@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import AvatarUser from "@/components/Others/avatarUser";
 import TextUser from "@/components/Others/textUser";
 import { CurrentUserContext, SetCurrentChatContext } from "utils/context";
-import { db } from "utils/firebase";
+import { db } from "pages/api/firebase";
 import { collection, doc } from "firebase/firestore";
 import {
   useDocumentData,

@@ -14,7 +14,7 @@ import { collection } from "firebase/firestore";
 import {
   useCollectionData,
 } from "react-firebase-hooks/firestore";
-import { db } from "utils/firebase";
+import { db } from "pages/api/firebase";
 import { CurrentUserContext } from "utils/context";
 import PrivateChatDrawerItem from "./privateChatDrawerItem";
 

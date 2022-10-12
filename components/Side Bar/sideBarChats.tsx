@@ -3,7 +3,7 @@ import { Box, Avatar, Button, Text } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import AvatarUser from "@/components/Others/avatarUser";
 import { CurrentUserContext } from "utils/context";
-import { db } from "utils/firebase";
+import { db } from "pages/api/firebase";
 import { collection, doc } from "firebase/firestore";
 import {
   useDocumentData,

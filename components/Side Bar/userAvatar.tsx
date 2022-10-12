@@ -1,6 +1,6 @@
 import { signOut } from "firebase/auth";
 import "firebase/compat/auth";
-import {auth} from "../../utils/firebase";
+import {auth} from "../../pages/api/firebase";
 
 import {
   IconButton,
