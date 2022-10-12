@@ -16,11 +16,11 @@ const auth = app.auth()
 const db = app.firestore()
 const provider = new firebase.auth.GoogleAuthProvider()
 
-const writeDb = async () => {
+const writeMsg = async () => {
   
 }
 
-const checkGilbert = async () => {
+const checkGilbert = async (chatId : string) => {
   const isGilbert = false;
   const isFirstMsg = false;
 
@@ -30,4 +30,4 @@ const checkGilbert = async () => {
   }
 }
 
-export { auth, db, provider, writeDb, checkGilbert }
+export { auth, db, provider, writeMsg, checkGilbert }
