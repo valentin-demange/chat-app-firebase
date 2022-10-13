@@ -19,7 +19,7 @@ export default function Home() {
     setResult(data.result);
     setGilbertQuestInput("");
   }
-
+//dezdze
 //   console.log({result})
 
   return (

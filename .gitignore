@@ -10,6 +10,12 @@
 /__mocks__
 /__tests__
 
+# test files
+/test
+/pages/test*
+/**/test*
+/pages/testGilbert.tsx
+
 # next.js
 /.next/
 /out/
