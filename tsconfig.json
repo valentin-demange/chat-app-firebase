@@ -39,5 +39,5 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ]
+, "utils/test2.js", "pages/api/generate.js"  ]
 }

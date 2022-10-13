@@ -20,7 +20,8 @@ export default function PrivateChatDrawerItem({ userUid, handleCloseDrawer } : {
     await setDoc(doc(db, "chats", chatId), {
       chatId: chatId,
       lastMessage: null,
-      membersUid: [currentUser!.uid, userUid],
+      // currentUser must be placed first. Reason: We check the SECOND member of the chat as being Gilbert or not
+      membersUid: [currentUser!.uid, userUid], 
       private: true,
     }).then(() => SetCurrentChat(chatId)); 
     await setDoc(doc(db, ["users", userUid, "chats"].join("/"), chatId), {

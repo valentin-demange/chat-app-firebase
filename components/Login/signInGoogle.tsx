@@ -36,7 +36,6 @@ export default function SignInGoogle() {
         photoURL: currentUser.user.photoURL,
         uid: currentUser.user.uid,
       });
-      debugger
       await setDoc(doc(db, ["users", currentUser.user.uid, "chats"].join("/"), "public"), {chatId: "public"})
     };
 

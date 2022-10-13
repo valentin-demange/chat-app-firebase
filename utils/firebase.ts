@@ -1,8 +1,18 @@
 import "firebase/compat/auth";
-import { User } from 'firebase/auth';
+import { User } from "firebase/auth";
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
-import { collection, addDoc, getDoc, updateDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDoc,
+  updateDoc,
+  doc,
+  orderBy,
+  limit,
+  query,
+  getDocs,
+} from "firebase/firestore";
 
 const app = firebase.initializeApp({
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -17,7 +27,11 @@ const auth = app.auth();
 const db = app.firestore();
 const provider = new firebase.auth.GoogleAuthProvider();
 
-const writeMessage = async (chatId: string, user: User, textMessage: string) => {
+const writeMessage = async (
+  chatId: string,
+  user: User,
+  textMessage: string
+) => {
   // Timestamp generation
   const timestamp = firebase.firestore.FieldValue.serverTimestamp();
 
@@ -35,32 +49,38 @@ const writeMessage = async (chatId: string, user: User, textMessage: string) => 
     updateDoc(docRef, {
       lastMessage: timestamp,
     })
-  )
-
+  );
 };
 
-const checkGilbert = async (chatId: string) => {
-  let isGilbert = false;
-  let isFirstMessage = false;
+interface message {
+  id: string;
+  profilePicUrl: string;
+  text: string;
+  author: string;
+}
 
+const checkGilbert = async (chatId: string) => {
   const docRef = doc(db, "chats", chatId);
   const docSnap = await getDoc(docRef);
 
-
-  // debugger
   if (docSnap.exists()) {
     const chatInfo = docSnap.data();
-    if (chatInfo.private && chatInfo.membersUid[1] === "Gilbert") isGilbert = true;
-    if (chatInfo.lastMessage === null) isFirstMessage = true;
+    // If Gilbert, we retrieve all messages data for OpenAi API
+    if (chatInfo.private && chatInfo.membersUid[1] === "Gilbert") {
+      const messagesQuery = query(
+        collection(db, ["chats", chatId, "messages"].join("/")),
+        orderBy("timestamp")
+      );
+
+      let chatGilbert:message[] = [];
+      const querySnapshot = await getDocs(messagesQuery);
+      querySnapshot.forEach((doc: any) => chatGilbert.push(doc.data()));
+      console.log({ chatGilbert });
+      return chatGilbert;
+    }
   }
-
-  // console.log(["isGilbert: " + isGilbert])
-  // console.log(["isFirstMessage: " + isFirstMessage])
-
-  return {
-    isGilbert: isGilbert,
-    isFirstMessage: isFirstMessage,
-  };
+  return null;
 };
 
 export { auth, db, provider, writeMessage, checkGilbert };
+export type {message}
