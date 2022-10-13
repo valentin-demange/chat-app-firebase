@@ -12,7 +12,6 @@ export default function AvatarUser({ uid } : {uid:string}) {
   if (loading) return <></>;
   if (error) return <div>Error</div>;
   if (userInfo) {
-    // console.log({userInfo})
     return <div>
       <Avatar name={userInfo.name} src={userInfo.photoURL} backgroundColor="gray.100"/>
     </div>;

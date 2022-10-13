@@ -27,7 +27,6 @@ export default function ChatFooter() {
     writeMessage(currentChat, currentUser, textMessage)
     const chatGilbert = await checkGilbert(currentChat);
     if (chatGilbert) {
-      console.log({chatGilbert})
       const answerGilbert = await askGilbert(chatGilbert)
       writeMessage(currentChat, {uid: "Gilbert", photoURL:"gilbert.png"} as User, answerGilbert)
     }

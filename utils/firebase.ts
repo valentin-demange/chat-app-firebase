@@ -75,7 +75,7 @@ const checkGilbert = async (chatId: string) => {
       let chatGilbert:message[] = [];
       const querySnapshot = await getDocs(messagesQuery);
       querySnapshot.forEach((doc: any) => chatGilbert.push(doc.data()));
-      console.log({ chatGilbert });
+      // console.log({ chatGilbert });
       return chatGilbert;
     }
   }
