@@ -27,7 +27,6 @@ export default function PrivateChatDrawer() {
 
 
   if (value) {
-    // value.map((val) => console.log(val.photoURL))
     const listItems = value
       .filter((val) => val.uid !== currentUser.uid)
       .map((val) => <PrivateChatDrawerItem key={val.uid} userUid={val.uid} handleCloseDrawer={onClose} />);

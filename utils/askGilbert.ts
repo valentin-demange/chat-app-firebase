@@ -6,7 +6,8 @@ export default async function askGilbert(chatGilbert: message[], userName: strin
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({promptOpenAi: formatGilbertPrompt(chatGilbert, userName)}),
+    body: JSON.stringify({promptOpenAi: formatGilbertPrompt(chatGilbert, userName),
+    userName: userName}),
   });
   const data = await response.json();
   return data.result;
@@ -20,13 +21,12 @@ const formatGilbertPrompt = (chatGilbert: message[], userName:string) => {
   \n`;
 
   const body = chatGilbert
-    .map((msg: { author: string; text: string; }) => {
-      if (msg.author === "Gilbert") return "Gilbert:" + msg.text;
-      else return `${userName}:` + msg.text;
+    .map((msg: { authorId: string; text: string; }) => {
+      if (msg.authorId === "Gilbert") return `Gilbert:` + msg.text;
+      else return `${userName}: ` + msg.text;
     })
     .join("\n");
   const outro = "\nGilbert:";
 
-  // debugger
   return intro + body + outro;
 };

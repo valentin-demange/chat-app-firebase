@@ -12,7 +12,6 @@ export default function TextUser({ uid } : {uid:string}) {
   if (loading) return <></>;
   if (error) return <div>Error</div>;
   if (userInfo) {
-    // console.log({userInfo})
     return <div>
           <Text fontSize="18px" fontWeight="normal">
             {userInfo.name}

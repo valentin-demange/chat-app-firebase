@@ -12,6 +12,7 @@ import {
   limit,
   query,
   getDocs,
+  Timestamp,
 } from "firebase/firestore";
 
 const app = firebase.initializeApp({
@@ -53,10 +54,10 @@ const writeMessage = async (
 };
 
 interface message {
-  id: string;
+  timestamp: Timestamp;
   profilePicUrl: string;
   text: string;
-  author: string;
+  authorId: string;
 }
 
 const checkGilbert = async (chatId: string) => {
@@ -75,7 +76,6 @@ const checkGilbert = async (chatId: string) => {
       let chatGilbert:message[] = [];
       const querySnapshot = await getDocs(messagesQuery);
       querySnapshot.forEach((doc: any) => chatGilbert.push(doc.data()));
-      // console.log({ chatGilbert });
       return chatGilbert;
     }
   }
