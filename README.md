@@ -18,7 +18,6 @@ I made this chat app for multiple purposes :
 
 - Implement backend with Node.js (PERN or MERN stack)
 - Make Gilbert answer with GPT-3 API (via Firebase Cloud functions)
-> Hope he will help me getting job proposals for my new role 🤞🏼
 
 ### Built with
 
