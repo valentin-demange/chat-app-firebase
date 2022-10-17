@@ -1,9 +1,9 @@
 # Chat App
 
 I made this chat app for multiple purposes :
-- Building my first web app in React with Hooks
+- Building a project from scratch in React / Next.js with hooks
 - Integration with Firebase
-- Implementation of Next JS, Typescript, Chakra-UI and third-party hooks
+- Implementation of Typescript, Chakra-UI and OpenAi API
 
 [Live Demo](https://blabla-19-90.vercel.app/) :point_left:
 
