@@ -1,7 +1,7 @@
 # Chat App
 
 I made this chat app for multiple purposes :
-- Building my first web app in React with Hooks, following FP paradigm
+- Building my first web app in React with Hooks
 - Integration with Firebase
 - Implementation of Next JS, Typescript, Chakra-UI and third-party hooks
 
