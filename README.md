@@ -27,7 +27,7 @@ I made this chat app for multiple purposes :
 - [TypeScript](https://www.typescriptlang.org/)
 - [Chakra-UI](https://chakra-ui.com/)
 - [React-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks)
-- [OpenAi](https://beta.openai.com/)
+- [OpenAi API](https://beta.openai.com/)
 
 ### Inspired by
 
