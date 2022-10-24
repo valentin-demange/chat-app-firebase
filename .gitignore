@@ -13,8 +13,6 @@
 # test files
 /test
 /pages/test*
-/**/test*
-/pages/testGilbert.tsx
 
 # next.js
 /.next/
