@@ -1,9 +1,9 @@
 # Chat App
 
 I made this chat app for multiple purposes :
-- Building my first web app in React with Hooks, following FP paradigm
+- Building a project from scratch in React / Next.js with hooks
 - Integration with Firebase
-- Implementation of Next JS, Typescript, Chakra-UI and third-party hooks
+- Implementation of Typescript, Chakra-UI and OpenAi API
 
 [Live Demo](https://blabla-19-90.vercel.app/) :point_left:
 
@@ -13,12 +13,11 @@ I made this chat app for multiple purposes :
 - Toggle dark / light theme
 - Responsive design
 - Public & Private chats
+- Gilbert bot (GPT-3)
 
 ### To be implemented
 
 - Implement backend with Node.js (PERN or MERN stack)
-- Make Gilbert answer with GPT-3 API (via Firebase Cloud functions)
-> Hope he will help me getting job proposals for my new role 🤞🏼
 
 ### Built with
 
@@ -28,6 +27,7 @@ I made this chat app for multiple purposes :
 - [TypeScript](https://www.typescriptlang.org/)
 - [Chakra-UI](https://chakra-ui.com/)
 - [React-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks)
+- [OpenAi API](https://beta.openai.com/)
 
 ### Inspired by
 
