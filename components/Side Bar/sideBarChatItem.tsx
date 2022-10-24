@@ -8,7 +8,6 @@ import { db } from "utils/firebase";
 import { collection, doc } from "firebase/firestore";
 import {
   useDocumentData,
-  useCollectionData,
 } from "react-firebase-hooks/firestore";
 
 export default function SideBarChatItem({ chatId } : {chatId : string}) {
