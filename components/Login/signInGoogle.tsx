@@ -30,7 +30,6 @@ export default function SignInGoogle() {
     const updateUserInDatabase = async () => {
       // debugger
       const userRef = doc(db, 'users', currentUser.user.uid);
-      console.log("updating currentUser info in database")
       await setDoc(userRef, {
         name: currentUser.user.displayName,
         photoURL: currentUser.user.photoURL,
