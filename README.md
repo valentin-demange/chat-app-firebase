@@ -45,8 +45,8 @@ I made this chat app for multiple purposes :
 
 ### Desktop
 
-<img src="https://user-images.githubusercontent.com/42913023/194820468-1a3ef392-dc0f-41a4-9500-c2d389f3e071.png" alt="drawing" width="800"/>
+<img src="https://user-images.githubusercontent.com/42913023/198327232-bcbf9a03-4ce0-473e-aecd-fb526bab79e8.png" alt="drawing" width="800"/>
 
 ### Mobile
 
-<img src="https://user-images.githubusercontent.com/42913023/194820487-1ff06f4c-37e0-4421-979c-bbddb4e92476.png" alt="drawing" width="300"/>
+<img src="https://user-images.githubusercontent.com/42913023/198327723-f0ab2402-0460-4248-9e1c-fac24edeaa9f.png" alt="drawing" width="300"/>
