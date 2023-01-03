@@ -15,10 +15,6 @@ I made this chat app for multiple purposes :
 - Public & Private chats
 - Gilbert bot (GPT-3)
 
-### To be implemented
-
-- Implement backend with Node.js (PERN or MERN stack)
-
 ### Built with
 
 - [React](https://reactjs.org/)
@@ -31,10 +27,9 @@ I made this chat app for multiple purposes :
 
 ### Inspired by
 
-- [The Odin Project](https://www.theodinproject.com)
-- [Michal Osman's project](https://github.com/michalosman/chat-app-firebase)
 - [Messenger](https://messenger.com)
-- [Whatsapp](https://web.whatsapp.com/)
+- [Michal Osman's project](https://github.com/michalosman/chat-app-firebase) for [The Odin Project](https://www.theodinproject.com)
+
 
 ## Lighthouse scores (Desktop)
 
