@@ -5,7 +5,7 @@ I made this chat app for multiple purposes :
 - Integration with Firebase
 - Implementation of Typescript, Chakra-UI and OpenAi API
 
-[Live Demo](https://blabla-19-90.vercel.app/) :point_left:
+[Live Demo](https://blabla-19-90-firebase.vercel.app/) :point_left:
 
 ### Features
 
